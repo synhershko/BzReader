@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AbortingIndexing" xml:space="preserve">
+    <value>Cancelando</value>
+  </data>
+  <data name="AboutProduct" xml:space="preserve">
+    <value>Acerca de {0}</value>
+  </data>
+  <data name="AboutVersion" xml:space="preserve">
+    <value>Versión {0}</value>
+  </data>
+  <data name="BzReader" xml:space="preserve">
+    <value>BzReader</value>
+  </data>
+  <data name="CarryoverNoPrevBlock" xml:space="preserve">
+    <value>Se ha producido un desbordamiento del título de un tema Wiki, pero no ha sido almacenado un bloque anterior</value>
+  </data>
+  <data name="CloseIndexingForm" xml:space="preserve">
+    <value>Cerrar</value>
+  </data>
+  <data name="DumpFileDoesNotExist" xml:space="preserve">
+    <value>No existe el archivo de descarga {0}</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ETA" xml:space="preserve">
+    <value>ETA: {0}</value>
+  </data>
+  <data name="FailedFinishingSearch" xml:space="preserve">
+    <value>El trabajo de búsqueda no puede terminar porque se ha excedido el tiempo de espera</value>
+  </data>
+  <data name="FailedLoadingBlock" xml:space="preserve">
+    <value>Error cargando {0} el bloque que comienza en {1}: {2}</value>
+  </data>
+  <data name="FailedLocatingBlocks" xml:space="preserve">
+    <value>Error localizando los bloques en {0}: {1}</value>
+  </data>
+  <data name="FailedStartingSearch" xml:space="preserve">
+    <value>El trabajo de búsqueda no puede comenzar porque se ha excedido el tiempo de espera</value>
+  </data>
+  <data name="FailedUncompressingMemory" xml:space="preserve">
+    <value>Error de descompresión del bloque que comienza en {0}: se requiere demasiada memoria</value>
+  </data>
+  <data name="FailedUncompressingStatus" xml:space="preserve">
+    <value>Error de descompresión del bloque que comienza en {0}: {1}</value>
+  </data>
+  <data name="FinishingInHours" xml:space="preserve">
+    <value>~ {0} horas y {1} minutos</value>
+  </data>
+  <data name="FinishingSoon" xml:space="preserve">
+    <value>en un abrir y cerrar de ojos!</value>
+  </data>
+  <data name="FlushingDocumentsToDisk" xml:space="preserve">
+    <value>Descargando los documentos al disco</value>
+  </data>
+  <data name="FormatterErrorMalformedList" xml:space="preserve">
+    <value>&lt;b style="color: #FF0000;"&gt;ERROR DE FORMATO (Lista mal formada)&lt;/b&gt;</value>
+  </data>
+  <data name="FormatterErrorMalformedTable" xml:space="preserve">
+    <value>&lt;b&gt;ERROR DE FORMATO (Tabla mal formada)&lt;/b&gt;</value>
+  </data>
+  <data name="HTTPRequestNoStringParts" xml:space="preserve">
+    <value>Cantidad no válida de partes en la cadena de solicitud HTTP</value>
+  </data>
+  <data name="HTTPRequestTooFewStrings" xml:space="preserve">
+    <value>Muy pocas cadenas en la solicitud HTTP</value>
+  </data>
+  <data name="IndexDoesNotExist" xml:space="preserve">
+    <value>El índice no existe para {0}</value>
+  </data>
+  <data name="IndexingDoneETA" xml:space="preserve">
+    <value>Todo listo!</value>
+  </data>
+  <data name="NoBlocksFound" xml:space="preserve">
+    <value>No se han encontrado bloques Bz2 en {0}</value>
+  </data>
+  <data name="NoTextEndInBlock" xml:space="preserve">
+    <value>No se ha podido localizar el final del texto para el tema {0} en el bloque</value>
+  </data>
+  <data name="NoTextMarkerInBlock" xml:space="preserve">
+    <value>No se ha podido localizar el marcador del texto para el tema {0} en el bloque</value>
+  </data>
+  <data name="NoTextStartInBlock" xml:space="preserve">
+    <value>No se ha podido localizar el comienzo del texto para el tema {0} en el bloque</value>
+  </data>
+  <data name="NoTopicInBlock" xml:space="preserve">
+    <value>No se pudo localizar el tema {0} en el bloque</value>
+  </data>
+  <data name="NoTopicsInBlock" xml:space="preserve">
+    <value>No se han encontrado temas en el bloque</value>
+  </data>
+  <data name="OpenDumpFilter" xml:space="preserve">
+    <value>Archivos descargados de Wikipedia (*. xml.bz2) | *. xml.bz2 | Todos los archivos (*.*)|*.*</value>
+  </data>
+  <data name="OptimizingIndex" xml:space="preserve">
+    <value>Optimizando el índice</value>
+  </data>
+  <data name="ProductDescription" xml:space="preserve">
+    <value>BzReader es un explorador de descargas comprimidas de Wikipedia</value>
+  </data>
+  <data name="ProductLicense" xml:space="preserve">
+    <value>El producto está licenciado bajo GPLv2</value>
+  </data>
+  <data name="ProgressIndexing" xml:space="preserve">
+    <value>Indexación</value>
+  </data>
+  <data name="ProgressLocatingBlocks" xml:space="preserve">
+    <value>Localizando los bloques</value>
+  </data>
+  <data name="SearchingForTerm" xml:space="preserve">
+    <value>Buscando '{0}'</value>
+  </data>
+  <data name="ShowingXTopResults" xml:space="preserve">
+    <value>Mostrando {0} los primeros resultados</value>
+  </data>
+  <data name="UnknownHTTPRequestType" xml:space="preserve">
+    <value>Tipo de solicitud HTTP desconocido {0}</value>
+  </data>
+  <data name="UTFDecoderError" xml:space="preserve">
+    <value>El decodificador UTF8 no puede completar la conversión</value>
+  </data>
+  <data name="WaitingForTokenizers" xml:space="preserve">
+    <value>Esperando que {0} terminen los hilos de tokenizador</value>
+  </data>
+  <data name="WindowTitle" xml:space="preserve">
+    <value>BzReader - {0}</value>
+  </data>
+</root>

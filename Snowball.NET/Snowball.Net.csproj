@@ -1,0 +1,195 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8F9D7A92-F122-413E-9D8D-027E4ECD327C}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon>
+    </ApplicationIcon>
+    <AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
+    <AssemblyName>Snowball.Net</AssemblyName>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Snowball.Net</RootNamespace>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <StartupObject>
+    </StartupObject>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DocumentationFile>
+    </DocumentationFile>
+    <DebugSymbols>true</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>0162, 0164, 1591, 0168, 1587, 1570</NoWarn>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>full</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <BaseAddress>285212672</BaseAddress>
+    <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
+    <ConfigurationOverrideFile>
+    </ConfigurationOverrideFile>
+    <DefineConstants>TRACE</DefineConstants>
+    <DocumentationFile>Snowball.Net.xml</DocumentationFile>
+    <DebugSymbols>false</DebugSymbols>
+    <FileAlignment>4096</FileAlignment>
+    <NoStdLib>false</NoStdLib>
+    <NoWarn>0162, 0164, 1591, 0168, 1587, 1570</NoWarn>
+    <Optimize>true</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <DebugType>none</DebugType>
+    <ErrorReport>prompt</ErrorReport>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib">
+      <Name>mscorlib</Name>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Design">
+      <Name>System.Design</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Management">
+      <Name>System.Management</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.Xml</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Extra\ChineseAnalyzer.cs" />
+    <Compile Include="Extra\ChineseFilter.cs" />
+    <Compile Include="Extra\ChineseTokenizer.cs" />
+    <Compile Include="Extra\CJKAnalyzer.cs" />
+    <Compile Include="Extra\CJKTokenizer.cs" />
+    <Compile Include="Extra\CzechAnalyzer.cs" />
+    <Compile Include="Lucene.Net\Analysis\Snowball\SnowballAnalyzer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Lucene.Net\Analysis\Snowball\SnowballFilter.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Among.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Ext\DanishStemmer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Ext\DutchStemmer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Ext\EnglishStemmer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Ext\FinnishStemmer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Ext\FrenchStemmer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Ext\German2Stemmer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Ext\GermanStemmer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Ext\ItalianStemmer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Ext\KpStemmer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Ext\LovinsStemmer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Ext\NorwegianStemmer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Ext\PorterStemmer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Ext\PortugueseStemmer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Ext\RussianStemmer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Ext\SpanishStemmer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\Ext\SwedishStemmer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\SnowballProgram.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SF\Snowball\TestApp.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Content Include="Build.xml" />
+    <Content Include="Docs\Index.html" />
+    <Content Include="LICENSE.txt" />
+    <Content Include="Lucene.Net\Analysis\Snowball\Package.html" />
+    <Content Include="README.txt" />
+    <Content Include="SF\Overview.html" />
+    <Content Include="SF\Snowball\Ext\Package.html" />
+    <Content Include="SF\Snowball\Package.html" />
+    <Content Include="Xdocs\Index.xml" />
+    <Content Include="Xdocs\Stylesheets\Project.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lucene.Net\trunk\C#\src\Lucene.Net\Lucene.Net.csproj">
+      <Project>{5D4AD9BE-1FFB-41AB-9943-25737971BF57}</Project>
+      <Name>Lucene.Net</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>

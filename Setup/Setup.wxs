@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+		<Product Id="32BE5003-DD41-4A84-9F19-0F2E72BFBB80" Name="BzReader" Language="1033" Version="1.0.11.0" Manufacturer="Halleck Software" UpgradeCode="275A7BD6-98EF-4E1F-A2B1-9175AF8327C2">
+		<Package InstallerVersion="200" Compressed="yes" Platform="x86" />
+		<Media Id="1" Cabinet="Setup.cab" EmbedCab="yes" />
+
+		<?ifndef Configuration ?>
+			<?define Configuration=Debug ?>
+		<?endif ?>
+
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+				<Directory Id="APPLICATIONFOLDER" Name="BzReader">
+					<Directory Id="uk_UA" Name="uk-UA">
+						<Component Id="BzReader.resources.uk_UA.dll" Guid="14666F20-683C-4943-A5F8-4BE95AC8231F">
+							<File Id="BzReader.resources.uk_UA.dll" KeyPath="yes" Assembly=".net" AssemblyManifest="BzReader.resources.uk_UA.dll" AssemblyApplication="BzReader.resources.uk_UA.dll" Name="BzReader.resources.dll" ProcessorArchitecture="x86" Vital="yes" Source="$(sys.SOURCEFILEDIR)..\BzReader\bin\$(var.Configuration)\uk-UA\BzReader.resources.dll" />
+						</Component>
+					</Directory>
+					<Directory Id="es_ES" Name="es-ES">
+						<Component Id="BzReader.resources.es_ES.dll" Guid="5474943C-91F9-4E22-9DFC-AAF80C176E3C">
+							<File Id="BzReader.resources.es_ES.dll" KeyPath="yes" Assembly=".net" AssemblyManifest="BzReader.resources.uk_UA.dll" AssemblyApplication="BzReader.resources.es_ES.dll" Name="BzReader.resources.dll" ProcessorArchitecture="x86" Vital="yes" Source="$(sys.SOURCEFILEDIR)..\BzReader\bin\$(var.Configuration)\es-ES\BzReader.resources.dll" />
+						</Component>
+					</Directory>
+
+					<Component Id="BzReader.exe" Guid="A6F3A835-26FF-4C58-9539-07BCEA7A6089">
+						<File Id="BzReader.exe" KeyPath="yes" Assembly=".net" AssemblyManifest="BzReader.exe" AssemblyApplication="BzReader.exe" ProcessorArchitecture="x86" Vital="yes" Source="$(sys.SOURCEFILEDIR)..\BzReader\bin\$(var.Configuration)\BzReader.exe">
+							<Shortcut Id="BzReader.exe" Advertise="yes" Directory="ProgramMenuDir" WorkingDirectory="INSTALLLOCATION" Name="BzReader" Description="BzReader is a Wikipedia .xml.bz2 compressed dump file reader" Icon="BzReader.exe" />
+						</File>
+						<File Id="BzReader.exe.config" Source="$(sys.SOURCEFILEDIR)..\BzReader\bin\$(var.Configuration)\BzReader.exe.config" />
+						<RemoveFolder Id="ProgramMenuRemove" Directory="ProgramMenuDir" On="uninstall" />
+					</Component>
+					<Component Id="Lucene.Net.dll" Guid="9F831186-4378-4FC5-B2EE-253BF0B8FBF1">
+						<File Id="Lucene.Net.dll" KeyPath="yes" Assembly=".net" AssemblyManifest="Lucene.Net.dll" AssemblyApplication="Lucene.Net.dll" ProcessorArchitecture="x86" Vital="yes" Source="$(sys.SOURCEFILEDIR)..\BzReader\bin\$(var.Configuration)\Lucene.Net.dll" />
+					</Component>
+					<Component Id="Snowball.Net.dll" Guid="ECFFA385-338F-4809-B61A-69D7477B8440">
+						<File Id="Snowball.Net.dll" KeyPath="yes" Assembly=".net" AssemblyManifest="Snowball.Net.dll"  AssemblyApplication="Snowball.Net.dll" ProcessorArchitecture="x86" Vital="yes" Source="$(sys.SOURCEFILEDIR)..\BzReader\bin\$(var.Configuration)\Snowball.Net.dll" />
+					</Component>
+					<Component Id="bzip2.dll" Guid="9159E23A-1142-473E-987B-74FE53C0AFD6">
+						<File Id="bzip2.dll" KeyPath="yes" ProcessorArchitecture="x86" Vital="yes" Source="$(sys.SOURCEFILEDIR)..\BzReader\bin\$(var.Configuration)\bzip2.dll" />
+					</Component>
+					<Component Id="MimeTeX.dll" Guid="F896ACA1-3C89-4B49-9DC9-6C6455523562">
+						<File Id="MimeTeX.dll" KeyPath="yes" ProcessorArchitecture="x86" Vital="yes" Source="$(sys.SOURCEFILEDIR)..\BzReader\bin\$(var.Configuration)\MimeTeX.dll" />
+					</Component>
+					<Directory Id="ProgramMenuFolder" Name="ProgramMenuFolder">
+						<Directory Id="ProgramMenuDir" Name="BzReader" />
+					</Directory>
+
+				</Directory>
+			</Directory>
+		</Directory>
+
+		<Feature Id="ProductFeature" Title="BzReader" Level="1">
+			<ComponentRef Id="BzReader.exe" />
+			<ComponentRef Id="Lucene.Net.dll" />
+			<ComponentRef Id="Snowball.Net.dll" />
+			<ComponentRef Id="bzip2.dll" />
+			<ComponentRef Id="BzReader.resources.es_ES.dll" />
+			<ComponentRef Id="BzReader.resources.uk_UA.dll" />
+			<ComponentRef Id="MimeTeX.dll" />
+		</Feature>
+
+		<Condition Message="You need to have Microsoft .NET Framework Runtime v2.0 or later to use this product">MsiNetAssemblySupport &gt;= "2.0.50727"</Condition>
+		<Condition Message="You need to have Windows Installer 2.0 or later to install this product">VersionMsi &gt;= "2.0"</Condition>
+		<Icon Id="BzReader.exe" SourceFile="$(sys.SOURCEFILEDIR)..\BzReader\bin\$(var.Configuration)\BzReader.exe" />
+		<Property Id="ApplicationFolderName" Value="BzReader"/>
+		<Property Id="WixAppFolder" Value="WixPerMachineFolder" />
+		<UIRef Id="WixUI_Advanced" />
+			
+	</Product>
+</Wix>

@@ -1,0 +1,56 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.0</ProductVersion>
+    <ProjectGuid>ae435bac-4e77-4e2a-a728-52f29821b988</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>BzReader</OutputName>
+    <OutputType>Package</OutputType>
+    <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.0\Wix.targets</WixTargetsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+    <Cultures>
+    </Cultures>
+    <LinkerAdditionalOptions>-ext WixUIExtension</LinkerAdditionalOptions>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <Cultures>
+    </Cultures>
+    <LinkerAdditionalOptions>-ext WixUIExtension</LinkerAdditionalOptions>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Setup.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\bzip2\bzip2.vcproj">
+      <Name>bzip2</Name>
+      <Project>{c71b449b-d2d9-4cf1-8a1b-134ef7ac64b8}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\BzReader\BzReader.csproj">
+      <Name>BzReader</Name>
+      <Project>{a28ed684-0be8-43e0-817d-6d0e5867b04b}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\MimeTeX\MimeTeX.vcproj">
+      <Name>MimeTeX</Name>
+      <Project>{ef21a39b-a187-4663-be7d-336577c8691f}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" />
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>
