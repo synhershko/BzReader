@@ -135,21 +135,22 @@ namespace BzReader
             filePath = path;
 
             indexPath = Path.ChangeExtension(path, ".idx");
+            Lucene.Net.Store.Directory idxDir = FSDirectory.Open(new DirectoryInfo(indexPath));
 
             if (Directory.Exists(indexPath) &&
-                IndexReader.IndexExists(indexPath))
+                IndexReader.IndexExists(idxDir))
             {
                 indexExists = true;
             }
 
             if (indexExists)
             {
-                searcher = new IndexSearcher(indexPath);
+                searcher = new IndexSearcher(idxDir, true);
             }
 
             textAnalyzer = GuessAnalyzer(filePath);
 
-            queryParser = new QueryParser("title", textAnalyzer);
+            queryParser = new QueryParser(Lucene.Net.Util.Version.LUCENE_29, "title", textAnalyzer);
             
             queryParser.SetDefaultOperator(QueryParser.Operator.AND);
 
@@ -212,9 +213,9 @@ namespace BzReader
                 indexExists = false;
 
                 // Create the index writer
-
-                indexer = new IndexWriter(indexPath, textAnalyzer, true);
-                memoryIndexer = new IndexWriter(new RAMDirectory(), textAnalyzer, true);
+                FSDirectory idxDir = FSDirectory.Open(new DirectoryInfo(indexPath));
+                indexer = new IndexWriter(idxDir, textAnalyzer, true, IndexWriter.MaxFieldLength.UNLIMITED);
+                memoryIndexer = new IndexWriter(new RAMDirectory(), textAnalyzer, true, IndexWriter.MaxFieldLength.UNLIMITED);
 
                 memoryIndexer.SetMaxBufferedDocs(1000);
                 memoryIndexer.SetMergeFactor(100);
@@ -320,7 +321,7 @@ namespace BzReader
 
                 memoryIndexer.Close();
 
-                indexer.AddIndexes(new Lucene.Net.Store.Directory[] { dir });
+                indexer.AddIndexesNoOptimize(new Lucene.Net.Store.Directory[] { dir });
 
                 memoryIndexer = null;
                 ReportProgress(0, IndexingProgress.State.Running, Properties.Resources.OptimizingIndex);
@@ -356,7 +357,8 @@ namespace BzReader
             {
                 if (indexExists)
                 {
-                    searcher = new IndexSearcher(indexPath);
+                    FSDirectory idxDir = FSDirectory.Open(new DirectoryInfo(indexPath));
+                    searcher = new IndexSearcher(idxDir, true);
                 }
             }
             ReportProgress(0, IndexingProgress.State.Finished, String.Empty);
@@ -526,7 +528,7 @@ namespace BzReader
 
             // Flush the memory indexer to disk from time to time
 
-            if (memoryIndexer.DocCount() >= MAX_RAMDIRECTORY_DOCS)
+            if (memoryIndexer.MaxDoc() >= MAX_RAMDIRECTORY_DOCS)
             {
                 ReportProgress(0, IndexingProgress.State.Running, Properties.Resources.FlushingDocumentsToDisk);
 
@@ -539,9 +541,9 @@ namespace BzReader
 
                 memoryIndexer.Close();
                 
-                indexer.AddIndexes(new Lucene.Net.Store.Directory[]{ dir });
+                indexer.AddIndexesNoOptimize(new Lucene.Net.Store.Directory[]{ dir });
 
-                memoryIndexer = new IndexWriter(new RAMDirectory(), textAnalyzer, true);
+                memoryIndexer = new IndexWriter(new RAMDirectory(), textAnalyzer, true, IndexWriter.MaxFieldLength.UNLIMITED);
             }
 
             previousBlockBeginning = beginning;
@@ -562,7 +564,7 @@ namespace BzReader
 
             // Store title
 
-            d.Add(new Field("title", pi.Name, Field.Store.YES, Field.Index.TOKENIZED));
+            d.Add(new Field("title", pi.Name, Field.Store.YES, Field.Index.ANALYZED));
 
             // Current block offsets
 
@@ -579,7 +581,7 @@ namespace BzReader
 
             // Topic ID
 
-            d.Add(new Field("topicid", pi.TopicId.ToString(), Field.Store.YES, Field.Index.UN_TOKENIZED));
+            d.Add(new Field("topicid", pi.TopicId.ToString(), Field.Store.YES, Field.Index.NOT_ANALYZED));
 
             memoryIndexer.AddDocument(d);
 
@@ -921,16 +923,16 @@ namespace BzReader
             {
                 Query q = queryParser.Parse(si.SearchRequest);
 
-                IEnumerator hits = searcher.Search(q).Iterator();
+                TopScoreDocCollector tsdc = TopScoreDocCollector.create(100, true);
+                searcher.Search(q, tsdc);
+                
+                TopDocs hits = tsdc.TopDocs();
 
                 int i = 0;
-
-                while (hits.MoveNext() &&
-                    i < si.MaxResults)
+                for (i = 0; i < hits.scoreDocs.Length; ++i)
                 {
-                    Hit hit = (Hit)hits.Current;
-
-                    PageInfo pi = new PageInfo(this, hit);
+                    Document d = searcher.Doc(hits.scoreDocs[i].doc);
+                    PageInfo pi = new PageInfo(this, d, hits.scoreDocs[i].score);
 
                     lock (si.Hits)
                     {
@@ -940,8 +942,7 @@ namespace BzReader
                     i++;
                 }
 
-                if (i == si.MaxResults &&
-                    hits.MoveNext())
+                if (100 < tsdc.GetTotalHits())
                 {
                     lock (si.Hits)
                     {
@@ -1090,7 +1091,7 @@ namespace BzReader
                     ret = new SnowballAnalyzer("Swedish");
                     break;
                 default:
-                    ret = new StandardAnalyzer();
+                    ret = new StandardAnalyzer(Lucene.Net.Util.Version.LUCENE_29);
                     break;
             }
 

@@ -72,13 +72,11 @@ namespace BzReader
         /// </summary>
         /// <param name="ixr">The dump indexer this Wiki topic belongs to</param>
         /// <param name="hit">The Lucene Hit object</param>
-        public PageInfo(Indexer ixr, Hit hit)
+        public PageInfo(Indexer ixr, Document doc, float score)
         {
             Indexer = ixr;
 
-            Score = hit.GetScore();
-
-            Document doc = hit.GetDocument();
+            Score = score;
 
             TopicId = Convert.ToInt64(doc.GetField("topicid").StringValue());
 
