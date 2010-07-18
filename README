@@ -22,10 +22,11 @@ The typical usage would be:
 	1. Download one or several .xml.bz2 dumps of Wikipedia topics from http://download.wikipedia.org/backup-index.html
 	2. You will need the files named pages-articles.xml.bz2 for your language. Alternatively, you may use any database dumps which follow Wikipedia XML format - Wikibooks, Wikitravel etc.
 	3. Install BzReader
-	4. Open the Wikipedia dump in BzReader (you can have multiple dumps opened at the same time, all of them will be searched together)
-	5. Let BzReader create the index for fast retrieval of topics. This might be quite lengthy for big dumps. It takes about 4 hours on Core 2 Duo to index the current dump of all English topics (enwiki-20080312-pages-articles.xml.bz2, 3.5 Gb file). The BzReader index for this dump takes about 550 Mb.
-	6. Browse!
-	7. Enter your search terms into the search window on the left, wait for the result(s) and click on the topic. Try also something like "music*" to find anything that starts with "music".
+	4. To enable proper Hebrew searches, point to a path where hspell files reside. Go to Options > Set hspell path, and select the hspell-data-files folder shipping with the BzReader. Without doing so, a simple Hebrew analyzer will be used instead of a morphological one.
+	5. Open the Wikipedia dump in BzReader (you can have multiple dumps opened at the same time, all of them will be searched together)
+	6. Let BzReader create the index for fast retrieval of topics. This might be quite lengthy for big dumps. It takes about 4 hours on Core 2 Duo to index the current dump of all English topics (enwiki-20080312-pages-articles.xml.bz2, 3.5 Gb file). The BzReader index for this dump takes about 550 Mb.
+	7. Browse!
+	8. Enter your search terms into the search window on the left, wait for the result(s) and click on the topic. Try also something like "music*" to find anything that starts with "music".
 
 
 Known issues
