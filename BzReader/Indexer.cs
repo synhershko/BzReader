@@ -1090,6 +1090,23 @@ namespace BzReader
                 case "se":
                     ret = new SnowballAnalyzer("Swedish");
                     break;
+                case "he":
+                    {
+                        string hspellPath = System.Configuration.ConfigurationManager.AppSettings["hspellPath"];
+                        if (!string.IsNullOrEmpty(hspellPath) && Directory.Exists(hspellPath))
+                        {
+                            try
+                            {
+                                ret = new Lucene.Net.Analysis.Hebrew.MorphAnalyzer(hspellPath);
+                                break;
+                            }
+                            catch
+                            {
+                            }
+                        }
+                        ret = new Lucene.Net.Analysis.Hebrew.SimpleAnalyzer();
+                        break;
+                    }
                 default:
                     ret = new StandardAnalyzer(Lucene.Net.Util.Version.LUCENE_29);
                     break;

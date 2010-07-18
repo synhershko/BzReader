@@ -8,6 +8,7 @@ using System.IO;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace BzReader
 {
@@ -586,5 +587,49 @@ namespace BzReader
         }
 
         #endregion
+
+        private void setHspellPathToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string hspellPath = SelectHSpellFolderPath();
+            if (!string.IsNullOrEmpty(hspellPath) && Directory.Exists(hspellPath))
+            {
+                System.Configuration.ConfigurationManager.AppSettings["hspellPath"] = hspellPath;
+                UpdateAppSettings("hspellPath", hspellPath);
+            }
+        }
+
+        private string SelectHSpellFolderPath()
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+
+            // Help locating the hspell-data-files folder
+            string hspellPath = System.Configuration.ConfigurationManager.AppSettings["hspellPath"];
+            if (string.IsNullOrEmpty(hspellPath) || !Directory.Exists(hspellPath))
+            {
+                string exeFile = (new System.Uri(System.Reflection.Assembly.GetEntryAssembly().CodeBase)).AbsolutePath;
+                hspellPath = System.IO.Path.GetDirectoryName(exeFile);
+            }
+
+            fbd.SelectedPath = hspellPath;
+            fbd.ShowNewFolderButton = false;
+            DialogResult dr = fbd.ShowDialog();
+            if (dr != DialogResult.OK)
+                return null;
+
+            return fbd.SelectedPath;
+        }
+
+        public static void UpdateAppSettings(string settingKey, string settingValue)
+        {
+            System.Configuration.Configuration config =
+                ConfigurationManager.OpenExeConfiguration(
+                ConfigurationUserLevel.None);
+
+            AppSettingsSection asSection = config.AppSettings;
+            asSection.Settings.Remove(settingKey);
+            asSection.Settings.Add(settingKey, settingValue);
+
+            config.Save(ConfigurationSaveMode.Full);
+        }
     }
 }
