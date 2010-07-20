@@ -777,7 +777,7 @@ namespace BzReader
         /// Searches for the specified term in the index.
         /// </summary>
         /// <param name="term">The term.</param>
-        public static HitCollection Search(string term, IEnumerable<Indexer> indexers, int maxResults)
+        public static HitCollection Search(string queryString, IEnumerable<Indexer> indexers, int maxResults)
         {
             foreach (Indexer ixr in indexers)
             {
@@ -788,14 +788,12 @@ namespace BzReader
                 }
             }
 
-            string searchRequest = String.Format("title:\"{0}\" AND -\"Image:\"", term);
-
             HitCollection ret = new HitCollection();
 
             SearchItem si = new SearchItem();
 
             si.Hits = ret;
-            si.SearchRequest = searchRequest;
+            si.SearchRequest = queryString;
             si.MaxResults = maxResults;
             si.Errors = new Queue<Exception>();
 
