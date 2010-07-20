@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using System.Configuration;
+using System.Globalization;
 
 namespace BzReader
 {
@@ -630,6 +631,21 @@ namespace BzReader
             asSection.Settings.Add(settingKey, settingValue);
 
             config.Save(ConfigurationSaveMode.Full);
+        }
+
+        private void exportStripMenuItem_Click(object sender, EventArgs e)
+        {
+            PageInfo page = hitsBox.SelectedItem as PageInfo;
+            if (page != null)
+            {
+                SaveFileDialog sfd = new SaveFileDialog();
+                DialogResult dr = sfd.ShowDialog();
+                if (dr == DialogResult.OK && !string.IsNullOrEmpty(sfd.FileName))
+                {
+                    string content = page.GetFormattedContent();
+                    File.WriteAllText(sfd.FileName, content, Encoding.UTF8);
+                }
+            }
         }
     }
 }

@@ -33,12 +33,14 @@ namespace BzReader
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BrowseForm));
             System.Windows.Forms.ToolStripContainer toolStripContainer1;
             System.Windows.Forms.StatusStrip statusStrip1;
+            System.Windows.Forms.SplitContainer splitContainer1;
             System.Windows.Forms.ToolStrip toolStrip1;
             System.Windows.Forms.Timer timer;
-            System.Windows.Forms.SplitContainer splitContainer1;
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.hitsBox = new System.Windows.Forms.ListBox();
+            this.webBrowser = new System.Windows.Forms.WebBrowser();
             this.searchBox = new System.Windows.Forms.ToolStripTextBox();
             this.goButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
@@ -49,28 +51,28 @@ namespace BzReader
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rtlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.setHspellPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.setHspellPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.hitsBox = new System.Windows.Forms.ListBox();
-            this.webBrowser = new System.Windows.Forms.WebBrowser();
+            this.exportStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             menuStrip = new System.Windows.Forms.MenuStrip();
             toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             statusStrip1 = new System.Windows.Forms.StatusStrip();
+            splitContainer1 = new System.Windows.Forms.SplitContainer();
             toolStrip1 = new System.Windows.Forms.ToolStrip();
             timer = new System.Windows.Forms.Timer(this.components);
-            splitContainer1 = new System.Windows.Forms.SplitContainer();
             menuStrip.SuspendLayout();
             toolStripContainer1.BottomToolStripPanel.SuspendLayout();
             toolStripContainer1.ContentPanel.SuspendLayout();
             toolStripContainer1.TopToolStripPanel.SuspendLayout();
             toolStripContainer1.SuspendLayout();
             statusStrip1.SuspendLayout();
-            toolStrip1.SuspendLayout();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
+            toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -88,6 +90,8 @@ namespace BzReader
             this.openToolStripMenuItem,
             this.closeToolStripMenuItem,
             this.toolStripSeparator1,
+            this.exportStripMenuItem,
+            this.toolStripSeparator4,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             resources.ApplyResources(this.fileToolStripMenuItem, "fileToolStripMenuItem");
@@ -129,6 +133,38 @@ namespace BzReader
             // 
             this.searchStatusLabel.Name = "searchStatusLabel";
             resources.ApplyResources(this.searchStatusLabel, "searchStatusLabel");
+            // 
+            // splitContainer1
+            // 
+            splitContainer1.DataBindings.Add(new System.Windows.Forms.Binding("SplitterDistance", global::BzReader.Properties.Settings.Default, "SplitterDistance", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            resources.ApplyResources(splitContainer1, "splitContainer1");
+            splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            splitContainer1.Name = "splitContainer1";
+            // 
+            // splitContainer1.Panel1
+            // 
+            splitContainer1.Panel1.Controls.Add(this.hitsBox);
+            // 
+            // splitContainer1.Panel2
+            // 
+            splitContainer1.Panel2.Controls.Add(this.webBrowser);
+            splitContainer1.SplitterDistance = global::BzReader.Properties.Settings.Default.SplitterDistance;
+            // 
+            // hitsBox
+            // 
+            resources.ApplyResources(this.hitsBox, "hitsBox");
+            this.hitsBox.FormattingEnabled = true;
+            this.hitsBox.Name = "hitsBox";
+            this.hitsBox.SizeChanged += new System.EventHandler(this.hitsBox_SizeChanged);
+            this.hitsBox.SelectedValueChanged += new System.EventHandler(this.hitsBox_SelectedValueChanged);
+            // 
+            // webBrowser
+            // 
+            this.webBrowser.AllowWebBrowserDrop = false;
+            resources.ApplyResources(this.webBrowser, "webBrowser");
+            this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser.Name = "webBrowser";
+            this.webBrowser.ScriptErrorsSuppressed = true;
             // 
             // toolStrip1
             // 
@@ -207,6 +243,17 @@ namespace BzReader
             resources.ApplyResources(this.rtlToolStripMenuItem, "rtlToolStripMenuItem");
             this.rtlToolStripMenuItem.Click += new System.EventHandler(this.rtlToolStripMenuItem_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
+            // 
+            // setHspellPathToolStripMenuItem
+            // 
+            this.setHspellPathToolStripMenuItem.Name = "setHspellPathToolStripMenuItem";
+            resources.ApplyResources(this.setHspellPathToolStripMenuItem, "setHspellPathToolStripMenuItem");
+            this.setHspellPathToolStripMenuItem.Click += new System.EventHandler(this.setHspellPathToolStripMenuItem_Click);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -225,48 +272,16 @@ namespace BzReader
             timer.Enabled = true;
             timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
-            // setHspellPathToolStripMenuItem
+            // exportStripMenuItem
             // 
-            this.setHspellPathToolStripMenuItem.Name = "setHspellPathToolStripMenuItem";
-            resources.ApplyResources(this.setHspellPathToolStripMenuItem, "setHspellPathToolStripMenuItem");
-            this.setHspellPathToolStripMenuItem.Click += new System.EventHandler(this.setHspellPathToolStripMenuItem_Click);
+            this.exportStripMenuItem.Name = "exportStripMenuItem";
+            resources.ApplyResources(this.exportStripMenuItem, "exportStripMenuItem");
+            this.exportStripMenuItem.Click += new System.EventHandler(this.exportStripMenuItem_Click);
             // 
-            // toolStripSeparator3
+            // toolStripSeparator4
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
-            // 
-            // splitContainer1
-            // 
-            splitContainer1.DataBindings.Add(new System.Windows.Forms.Binding("SplitterDistance", global::BzReader.Properties.Settings.Default, "SplitterDistance", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            resources.ApplyResources(splitContainer1, "splitContainer1");
-            splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            splitContainer1.Panel1.Controls.Add(this.hitsBox);
-            // 
-            // splitContainer1.Panel2
-            // 
-            splitContainer1.Panel2.Controls.Add(this.webBrowser);
-            splitContainer1.SplitterDistance = global::BzReader.Properties.Settings.Default.SplitterDistance;
-            // 
-            // hitsBox
-            // 
-            resources.ApplyResources(this.hitsBox, "hitsBox");
-            this.hitsBox.FormattingEnabled = true;
-            this.hitsBox.Name = "hitsBox";
-            this.hitsBox.SizeChanged += new System.EventHandler(this.hitsBox_SizeChanged);
-            this.hitsBox.SelectedValueChanged += new System.EventHandler(this.hitsBox_SelectedValueChanged);
-            // 
-            // webBrowser
-            // 
-            this.webBrowser.AllowWebBrowserDrop = false;
-            resources.ApplyResources(this.webBrowser, "webBrowser");
-            this.webBrowser.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser.Name = "webBrowser";
-            this.webBrowser.ScriptErrorsSuppressed = true;
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
             // 
             // BrowseForm
             // 
@@ -289,11 +304,11 @@ namespace BzReader
             toolStripContainer1.PerformLayout();
             statusStrip1.ResumeLayout(false);
             statusStrip1.PerformLayout();
-            toolStrip1.ResumeLayout(false);
-            toolStrip1.PerformLayout();
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             splitContainer1.ResumeLayout(false);
+            toolStrip1.ResumeLayout(false);
+            toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -320,6 +335,8 @@ namespace BzReader
         private System.Windows.Forms.ToolStripButton nextButton;
         private System.Windows.Forms.ToolStripMenuItem setHspellPathToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        private System.Windows.Forms.ToolStripMenuItem exportStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
 
     }
 }
