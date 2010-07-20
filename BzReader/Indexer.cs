@@ -125,6 +125,12 @@ namespace BzReader
         /// elapsed time for operations
         /// </summary>
         private TimeSpan elapsed;
+        
+        /// <summary>
+        /// Indicates whether the assigned wiki dump holds RTL texts
+        /// </summary>
+        private bool _IsRTL = false;
+        public bool IsRTL { get { return _IsRTL; } }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Indexer"/> class.
@@ -148,7 +154,7 @@ namespace BzReader
                 searcher = new IndexSearcher(idxDir, true);
             }
 
-            textAnalyzer = GuessAnalyzer(filePath);
+            textAnalyzer = GuessAnalyzer(filePath, out _IsRTL);
 
             queryParser = new QueryParser(Lucene.Net.Util.Version.LUCENE_29, "title", textAnalyzer);
             
@@ -1034,9 +1040,10 @@ namespace BzReader
             }
         }
 
-        private Analyzer GuessAnalyzer(string filePath)
+        private Analyzer GuessAnalyzer(string filePath,out bool isRTL)
         {
             Analyzer ret = null;
+            isRTL = false;
 
             switch (Path.GetFileName(filePath).Substring(0, 2).ToLowerInvariant())
             {
@@ -1088,8 +1095,14 @@ namespace BzReader
                 case "se":
                     ret = new SnowballAnalyzer("Swedish");
                     break;
+                case "ar":
+                    isRTL = true;
+                    // TODO: Lucene 2.9 has a light stemmer for Arabic providing good search results
+                    ret = new StandardAnalyzer(Lucene.Net.Util.Version.LUCENE_29);
+                    break;
                 case "he":
                     {
+                        isRTL = true;
                         string hspellPath = System.Configuration.ConfigurationManager.AppSettings["hspellPath"];
                         if (!string.IsNullOrEmpty(hspellPath) && Directory.Exists(hspellPath))
                         {

@@ -48,15 +48,13 @@ namespace BzReader
             this.nextButton = new System.Windows.Forms.ToolStripButton();
             this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exportStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rtlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.setHspellPathToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             menuStrip = new System.Windows.Forms.MenuStrip();
             toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -222,6 +220,17 @@ namespace BzReader
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
+            // exportStripMenuItem
+            // 
+            this.exportStripMenuItem.Name = "exportStripMenuItem";
+            resources.ApplyResources(this.exportStripMenuItem, "exportStripMenuItem");
+            this.exportStripMenuItem.Click += new System.EventHandler(this.exportStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
+            // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
@@ -231,22 +240,9 @@ namespace BzReader
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rtlToolStripMenuItem,
-            this.toolStripSeparator3,
             this.setHspellPathToolStripMenuItem});
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             resources.ApplyResources(this.optionsToolStripMenuItem, "optionsToolStripMenuItem");
-            // 
-            // rtlToolStripMenuItem
-            // 
-            this.rtlToolStripMenuItem.Name = "rtlToolStripMenuItem";
-            resources.ApplyResources(this.rtlToolStripMenuItem, "rtlToolStripMenuItem");
-            this.rtlToolStripMenuItem.Click += new System.EventHandler(this.rtlToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             // 
             // setHspellPathToolStripMenuItem
             // 
@@ -271,17 +267,6 @@ namespace BzReader
             // 
             timer.Enabled = true;
             timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
-            // exportStripMenuItem
-            // 
-            this.exportStripMenuItem.Name = "exportStripMenuItem";
-            resources.ApplyResources(this.exportStripMenuItem, "exportStripMenuItem");
-            this.exportStripMenuItem.Click += new System.EventHandler(this.exportStripMenuItem_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
             // 
             // BrowseForm
             // 
@@ -324,7 +309,6 @@ namespace BzReader
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem rtlToolStripMenuItem;
         private System.Windows.Forms.ListBox hitsBox;
         private System.Windows.Forms.WebBrowser webBrowser;
         private System.Windows.Forms.ToolStripStatusLabel searchStatusLabel;
@@ -334,7 +318,6 @@ namespace BzReader
         private System.Windows.Forms.ToolStripButton backButton;
         private System.Windows.Forms.ToolStripButton nextButton;
         private System.Windows.Forms.ToolStripMenuItem setHspellPathToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem exportStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
 

@@ -408,15 +408,7 @@ namespace BzReader
                 Text = String.Format(Properties.Resources.WindowTitle, webBrowser.DocumentTitle);
             }
         }
-        
-        private void rtlToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ToolStripMenuItem tsi = (ToolStripMenuItem)sender;
-
-            Settings.IsRTL = !Settings.IsRTL;
-            tsi.Checked = Settings.IsRTL; 
-        }
-        
+                
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new AboutBox().ShowDialog(this);
