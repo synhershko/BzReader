@@ -8,6 +8,7 @@ Debug
 Release
 Backup
 Lucene.Net
+_Resharper*
 .svn
 obj
 bin

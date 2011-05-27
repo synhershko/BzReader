@@ -1,0 +1,281 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Snowball.Net</name>
+    </assembly>
+    <members>
+        <member name="T:SF.Snowball.Ext.SwedishStemmer">
+            <summary> Generated class implementing code defined by a snowball script.</summary>
+        </member>
+        <member name="M:SF.Snowball.SnowballProgram.GetCurrent">
+            <summary> Get the current string.</summary>
+        </member>
+        <member name="M:SF.Snowball.SnowballProgram.SetCurrent(System.String)">
+            <summary> Set the current string.</summary>
+        </member>
+        <member name="T:SF.Snowball.Ext.NorwegianStemmer">
+            <summary> Generated class implementing code defined by a snowball script.</summary>
+        </member>
+        <member name="T:SF.Snowball.Ext.GermanStemmer">
+            <summary> Generated class implementing code defined by a snowball script.</summary>
+        </member>
+        <member name="T:SF.Snowball.Ext.German2Stemmer">
+            <summary> Generated class implementing code defined by a snowball script.</summary>
+        </member>
+        <member name="T:SF.Snowball.Ext.DutchStemmer">
+            <summary> Generated class implementing code defined by a snowball script.</summary>
+        </member>
+        <member name="T:Lucene.Net.Analysis.Cn.ChineseFilter">
+            <summary>
+            Title: ChineseFilter
+            Description: Filter with a stop word table
+                         Rule: No digital is allowed.
+                               English word/token should larger than 1 character.
+                               One Chinese character as one Chinese word.
+            TO DO:
+              1. Add Chinese stop words, such as \ue400
+              2. Dictionary based Chinese word extraction
+              3. Intelligent Chinese word extraction
+            
+            Copyright:    Copyright (c) 2001
+            Company:
+            @author Yiyi Sun
+            @version $Id: ChineseFilter.java, v 1.4 2003/01/23 12:49:33 ehatcher Exp $
+            </summary>
+        </member>
+        <member name="T:SF.Snowball.Ext.PorterStemmer">
+            <summary> Generated class implementing code defined by a snowball script.</summary>
+        </member>
+        <member name="T:SF.Snowball.Ext.PortugueseStemmer">
+            <summary> Generated class implementing code defined by a snowball script.</summary>
+        </member>
+        <member name="T:Lucene.Net.Analysis.Cn.ChineseTokenizer">
+             Title: ChineseTokenizer
+             Description: Extract tokens from the Stream using Character.getType()
+                          Rule: A Chinese character as a single token
+             Copyright:   Copyright (c) 2001
+             Company:
+            
+             The difference between thr ChineseTokenizer and the
+             CJKTokenizer (id=23545) is that they have different
+             token parsing logic.
+             
+             Let me use an example. If having a Chinese text
+             "C1C2C3C4" to be indexed, the tokens returned from the
+             ChineseTokenizer are C1, C2, C3, C4. And the tokens
+             returned from the CJKTokenizer are C1C2, C2C3, C3C4.
+            
+             Therefore the index the CJKTokenizer created is much
+             larger.
+            
+             The problem is that when searching for C1, C1C2, C1C3,
+             C4C2, C1C2C3 ... the ChineseTokenizer works, but the
+             CJKTokenizer will not work.
+            
+             @author Yiyi Sun
+             @version $Id: ChineseTokenizer.java, v 1.4 2003/03/02 13:56:03 otis Exp $
+            
+        </member>
+        <member name="T:Lucene.Net.Analysis.Snowball.SnowballFilter">
+            <summary>A filter that stems words using a Snowball-generated stemmer.
+            
+            Available stemmers are listed in {@link SF.Snowball.Ext}.  The name of a
+            stemmer is the part of the class name before "Stemmer", e.g., the stemmer in
+            {@link EnglishStemmer} is named "English".
+            </summary>
+        </member>
+        <member name="M:Lucene.Net.Analysis.Snowball.SnowballFilter.#ctor(Lucene.Net.Analysis.TokenStream,System.String)">
+            <summary>Construct the named stemming filter.
+            
+            </summary>
+            <param name="in_Renamed">the input tokens to stem
+            </param>
+            <param name="name">the name of a stemmer
+            </param>
+        </member>
+        <member name="M:Lucene.Net.Analysis.Snowball.SnowballFilter.Next">
+            <summary>Returns the next input Token, after being stemmed </summary>
+        </member>
+        <member name="T:Lucene.Net.Analysis.Snowball.SnowballAnalyzer">
+            <summary>Filters {@link StandardTokenizer} with {@link StandardFilter}, {@link
+            LowerCaseFilter}, {@link StopFilter} and {@link SnowballFilter}.
+            
+            Available stemmers are listed in {@link SF.Snowball.Ext}.  The name of a
+            stemmer is the part of the class name before "Stemmer", e.g., the stemmer in
+            {@link EnglishStemmer} is named "English".
+            </summary>
+        </member>
+        <member name="M:Lucene.Net.Analysis.Snowball.SnowballAnalyzer.#ctor(System.String)">
+            <summary>Builds the named analyzer with no stop words. </summary>
+        </member>
+        <member name="M:Lucene.Net.Analysis.Snowball.SnowballAnalyzer.#ctor(System.String,System.String[])">
+            <summary>Builds the named analyzer with the given stop words. </summary>
+        </member>
+        <member name="M:Lucene.Net.Analysis.Snowball.SnowballAnalyzer.TokenStream(System.String,System.IO.TextReader)">
+            <summary>Constructs a {@link StandardTokenizer} filtered by a {@link
+            StandardFilter}, a {@link LowerCaseFilter} and a {@link StopFilter}. 
+            </summary>
+        </member>
+        <member name="T:SF.Snowball.Ext.RussianStemmer">
+            <summary> Generated class implementing code defined by a snowball script.</summary>
+        </member>
+        <member name="T:SF.Snowball.Ext.FrenchStemmer">
+            <summary> Generated class implementing code defined by a snowball script.</summary>
+        </member>
+        <member name="T:Lucene.Net.Analysis.CJK.CJKAnalyzer">
+            <summary>
+            Filters CJKTokenizer with StopFilter.
+            
+            @author Che, Dong
+            </summary>
+        </member>
+        <member name="F:Lucene.Net.Analysis.CJK.CJKAnalyzer.stopWords">
+            An array containing some common English words that are not usually
+            useful for searching. and some double-byte interpunctions.....
+        </member>
+        <member name="F:Lucene.Net.Analysis.CJK.CJKAnalyzer.stopTable">
+            stop word list 
+        </member>
+        <member name="M:Lucene.Net.Analysis.CJK.CJKAnalyzer.#ctor">
+            <summary>
+            Builds an analyzer which removes words in STOP_WORDS.
+            </summary>
+        </member>
+        <member name="M:Lucene.Net.Analysis.CJK.CJKAnalyzer.#ctor(System.String[])">
+            <summary>
+            Builds an analyzer which removes words in the provided array.
+            </summary>
+            <param name="stopWords">stop word array</param>
+        </member>
+        <member name="M:Lucene.Net.Analysis.CJK.CJKAnalyzer.TokenStream(System.String,System.IO.TextReader)">
+            <summary>
+            get token stream from input
+            </summary>
+            <param name="fieldName">lucene field name</param>
+            <param name="reader">input reader</param>
+            <returns>Token Stream</returns>
+        </member>
+        <member name="T:SF.Snowball.Ext.KpStemmer">
+            <summary> Generated class implementing code defined by a snowball script.</summary>
+        </member>
+        <member name="T:Lucene.Net.Analysis.Cz.CzechAnalyzer">
+            <summary>
+            Analyzer for Czech language. Supports an external list of stopwords (words that
+            will not be indexed at all).
+            A default set of stopwords is used unless an alternative list is specified, the
+            exclusion list is empty by default.
+            
+            @author    Lukas Zapletal [lzap@root.cz]
+            @version $Id: CzechAnalyzer.java,v 1.2 2003/01/22 20:54:47 ehatcher Exp $
+            </summary>
+        </member>
+        <member name="F:Lucene.Net.Analysis.Cz.CzechAnalyzer.STOP_WORDS">
+            List of typical stopwords.
+        </member>
+        <member name="F:Lucene.Net.Analysis.Cz.CzechAnalyzer.stoptable">
+            Contains the stopwords used with the StopFilter.
+        </member>
+        <member name="M:Lucene.Net.Analysis.Cz.CzechAnalyzer.#ctor">
+            <summary>
+            Builds an analyzer.
+            </summary>
+        </member>
+        <member name="M:Lucene.Net.Analysis.Cz.CzechAnalyzer.#ctor(System.String[])">
+            <summary>
+            Builds an analyzer with the given stop words.
+            </summary>
+        </member>
+        <member name="M:Lucene.Net.Analysis.Cz.CzechAnalyzer.#ctor(System.Collections.Hashtable)">
+            <summary>
+            Builds an analyzer with the given stop words.
+            </summary>
+        </member>
+        <member name="M:Lucene.Net.Analysis.Cz.CzechAnalyzer.#ctor(System.IO.FileInfo)">
+            <summary>
+            Builds an analyzer with the given stop words.
+            </summary>
+        </member>
+        <member name="M:Lucene.Net.Analysis.Cz.CzechAnalyzer.LoadStopWords(System.IO.Stream,System.String)">
+            <summary>
+            Loads stopwords hash from resource stream (file, database...).
+            </summary>
+            <param name="wordfile">File containing the wordlist</param>
+            <param name="encoding">Encoding used (win-1250, iso-8859-2, ...}, null for default system encoding</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Lucene.Net.Analysis.Cz.CzechAnalyzer.TokenStream(System.String,System.IO.TextReader)" -->
+        <!-- Badly formed XML comment ignored for member "T:Lucene.Net.Analysis.CJK.CJKTokenizer" -->
+        <member name="F:Lucene.Net.Analysis.CJK.CJKTokenizer.MAX_WORD_LEN">
+            Max word length 
+        </member>
+        <member name="F:Lucene.Net.Analysis.CJK.CJKTokenizer.IO_BUFFER_SIZE">
+            buffer size: 
+        </member>
+        <member name="F:Lucene.Net.Analysis.CJK.CJKTokenizer.offset">
+            word offset, used to imply which character(in ) is parsed 
+        </member>
+        <member name="F:Lucene.Net.Analysis.CJK.CJKTokenizer.bufferIndex">
+            the index used only for ioBuffer 
+        </member>
+        <member name="F:Lucene.Net.Analysis.CJK.CJKTokenizer.dataLen">
+            data length 
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:Lucene.Net.Analysis.CJK.CJKTokenizer.buffer" -->
+        <!-- Badly formed XML comment ignored for member "F:Lucene.Net.Analysis.CJK.CJKTokenizer.ioBuffer" -->
+        <member name="F:Lucene.Net.Analysis.CJK.CJKTokenizer.tokenType">
+            word type: single=>ASCII  double=>non-ASCII word=>default 
+        </member>
+        <member name="F:Lucene.Net.Analysis.CJK.CJKTokenizer.preIsTokened">
+            tag: previous character is a cached double-byte character  "C1C2C3C4"
+            ----(set the C1 isTokened) C1C2 "C2C3C4" ----(set the C2 isTokened)
+            C1C2 C2C3 "C3C4" ----(set the C3 isTokened) "C1C2 C2C3 C3C4"
+        </member>
+        <member name="M:Lucene.Net.Analysis.CJK.CJKTokenizer.#ctor(System.IO.TextReader)">
+            <summary>
+            Construct a token stream processing the given input.
+            </summary>
+            <param name="_in">I/O reader</param>
+        </member>
+        <member name="M:Lucene.Net.Analysis.CJK.CJKTokenizer.Next">
+            <summary>
+             Returns the next token in the stream, or null at EOS.
+            </summary>
+            <returns>Token</returns>
+        </member>
+        <member name="T:Lucene.Net.Analysis.Cn.ChineseAnalyzer">
+            <summary>
+            Title: ChineseAnalyzer
+            Description:
+              Subclass of org.apache.lucene.analysis.Analyzer
+              build from a ChineseTokenizer, filtered with ChineseFilter.
+            Copyright:   Copyright (c) 2001
+            Company:
+            @author Yiyi Sun
+            @version $Id: ChineseAnalyzer.java, v 1.2 2003/01/22 20:54:47 ehatcher Exp $
+            </summary>
+        </member>
+        <member name="M:Lucene.Net.Analysis.Cn.ChineseAnalyzer.TokenStream(System.String,System.IO.TextReader)">
+            <summary>
+            Creates a TokenStream which tokenizes all the text in the provided Reader.
+            </summary>
+            <returns>A TokenStream build from a ChineseTokenizer filtered with ChineseFilter.</returns>
+        </member>
+        <member name="T:SF.Snowball.Ext.EnglishStemmer">
+            <summary> Generated class implementing code defined by a snowball script.</summary>
+        </member>
+        <member name="T:SF.Snowball.Ext.DanishStemmer">
+            <summary> Generated class implementing code defined by a snowball script.</summary>
+        </member>
+        <member name="T:SF.Snowball.Ext.SpanishStemmer">
+            <summary> Generated class implementing code defined by a snowball script.</summary>
+        </member>
+        <member name="T:SF.Snowball.Ext.FinnishStemmer">
+            <summary> Generated class implementing code defined by a snowball script.</summary>
+        </member>
+        <member name="T:SF.Snowball.Ext.LovinsStemmer">
+            <summary> Generated class implementing code defined by a snowball script.</summary>
+        </member>
+        <member name="T:SF.Snowball.Ext.ItalianStemmer">
+            <summary> Generated class implementing code defined by a snowball script.</summary>
+        </member>
+    </members>
+</doc>

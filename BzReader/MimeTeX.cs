@@ -1,7 +1,5 @@
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Text;
 using System.Runtime.InteropServices;
 
 namespace BzReader
@@ -24,7 +22,7 @@ namespace BzReader
             }
             
             string tempFile = String.Empty;
-            byte[] response = new byte[0];
+            var response = new byte[0];
 
             e.MimeType = "image/gif";
             e.Redirect = false;

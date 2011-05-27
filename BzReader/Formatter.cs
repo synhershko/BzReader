@@ -2,14 +2,10 @@
  * as I'm going to release my code as GPL as well. */
 
 using System;
-using System.Configuration;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Web;
-using System.Diagnostics;
 using BzReader;
 
 namespace ScrewTurn.Wiki

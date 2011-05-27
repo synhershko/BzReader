@@ -1,49 +1,23 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bzip2", "bzip2\bzip2.vcproj", "{C71B449B-D2D9-4CF1-8A1B-134EF7AC64B8}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bzip2", "bzip2\bzip2.vcxproj", "{C71B449B-D2D9-4CF1-8A1B-134EF7AC64B8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BzReader", "BzReader\BzReader.csproj", "{A28ED684-0BE8-43E0-817D-6D0E5867B04B}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 	ProjectSection(ProjectDependencies) = postProject
 		{C71B449B-D2D9-4CF1-8A1B-134EF7AC64B8} = {C71B449B-D2D9-4CF1-8A1B-134EF7AC64B8}
 		{EF21A39B-A187-4663-BE7D-336577C8691F} = {EF21A39B-A187-4663-BE7D-336577C8691F}
 	EndProjectSection
 EndProject
-Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "Setup", "Setup\Setup.wixproj", "{AE435BAC-4E77-4E2A-A728-52F29821B988}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MimeTeX", "MimeTeX\MimeTeX.vcxproj", "{EF21A39B-A187-4663-BE7D-336577C8691F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MimeTeX", "MimeTeX\MimeTeX.vcproj", "{EF21A39B-A187-4663-BE7D-336577C8691F}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net", "..\Lucene.Net\trunk\C#\src\Lucene.Net\Lucene.Net.csproj", "{5D4AD9BE-1FFB-41AB-9943-25737971BF57}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lucene.Net", "..\..\..\Dev\Libraries\Lucene.Net\trunk\C#\src\Lucene.Net\Lucene.Net.csproj", "{5D4AD9BE-1FFB-41AB-9943-25737971BF57}"
 	ProjectSection(WebsiteProperties) = preProject
 		Debug.AspNetCompiler.Debug = "True"
 		Release.AspNetCompiler.Debug = "False"
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Snowball.Net", "Snowball.NET\Snowball.Net.csproj", "{8F9D7A92-F122-413E-9D8D-027E4ECD327C}"
-	ProjectSection(WebsiteProperties) = preProject
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.Debug = "False"
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,17 +55,6 @@ Global
 		{A28ED684-0BE8-43E0-817D-6D0E5867B04B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A28ED684-0BE8-43E0-817D-6D0E5867B04B}.Release|Win32.ActiveCfg = Release|Any CPU
 		{A28ED684-0BE8-43E0-817D-6D0E5867B04B}.Release|x86.ActiveCfg = Release|Any CPU
-		{AE435BAC-4E77-4E2A-A728-52F29821B988}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{AE435BAC-4E77-4E2A-A728-52F29821B988}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{AE435BAC-4E77-4E2A-A728-52F29821B988}.Debug|Win32.ActiveCfg = Debug|x86
-		{AE435BAC-4E77-4E2A-A728-52F29821B988}.Debug|x86.ActiveCfg = Debug|x86
-		{AE435BAC-4E77-4E2A-A728-52F29821B988}.Debug|x86.Build.0 = Debug|x86
-		{AE435BAC-4E77-4E2A-A728-52F29821B988}.Release|Any CPU.ActiveCfg = Release|x86
-		{AE435BAC-4E77-4E2A-A728-52F29821B988}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{AE435BAC-4E77-4E2A-A728-52F29821B988}.Release|Mixed Platforms.Build.0 = Release|x86
-		{AE435BAC-4E77-4E2A-A728-52F29821B988}.Release|Win32.ActiveCfg = Release|x86
-		{AE435BAC-4E77-4E2A-A728-52F29821B988}.Release|x86.ActiveCfg = Release|x86
-		{AE435BAC-4E77-4E2A-A728-52F29821B988}.Release|x86.Build.0 = Release|x86
 		{EF21A39B-A187-4663-BE7D-336577C8691F}.Debug|Any CPU.ActiveCfg = Debug|Win32
 		{EF21A39B-A187-4663-BE7D-336577C8691F}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
 		{EF21A39B-A187-4663-BE7D-336577C8691F}.Debug|Mixed Platforms.Build.0 = Debug|Win32
